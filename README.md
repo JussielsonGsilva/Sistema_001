@@ -30,3 +30,11 @@ Usa mysqli para conectar ao banco
 Verifica se a conexão foi bem-sucedida
 Pode ser incluído em outros arquivos com include 'conexao.php';
 
+Criando o arquivo cadastro.html
+Onde o usuário irá inserir seus dados
+
+Arquivo cadastro.php
+Recebe os dados do cadastro.html
+Criptografa a senha com password_hash()
+Insere os dados na tabela usuarios usando prepared statements (mais seguro contra SQL injection)
+
