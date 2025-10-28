@@ -61,7 +61,7 @@
 
 <div class="login-container">
     <h2>Login</h2>
-    <form action=".php" method="POST">
+    <form action="login.php" method="POST">
         <input type="text" name="usuario" placeholder="Usuário" required>
         <input type="password" name="senha" placeholder="Senha" required>
         <button type="submit">Logar</button>

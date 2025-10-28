@@ -46,7 +46,7 @@ function mostrarErro($mensagem) {
     </head>
     <body>
         <h2>$mensagem</h2>
-        <a href='index.html' class='btn'>Voltar</a>
+        <a href='index.php' class='btn'>Voltar</a>
     </body>
     </html>";
 }

@@ -59,3 +59,14 @@ Compara a senha digitada com a senha criptografada no banco
 Se estiver tudo certo, inicia a sessão e redireciona
 Se estiver errado, mostra uma mensagem estilizada com botão de voltar
 
+Criando o arquivo logout.php
+Finaliza a sessão do usuário
+Remove os dados de login da memória
+Redireciona o usuário para a tela de login ou página inicial
+Sem ele, o botão “Sair” não faz nada — ou pior, o usuário continua logado mesmo depois de clicar.
+
+O usuário clica em “Sair”
+A sessão é encerrada
+Ele volta para a tela de login
+Se tentar acessar sistema_empresa.php sem estar logado, será bloqueado
+
