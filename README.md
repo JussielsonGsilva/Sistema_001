@@ -38,3 +38,6 @@ Recebe os dados do cadastro.html
 Criptografa a senha com password_hash()
 Insere os dados na tabela usuarios usando prepared statements (mais seguro contra SQL injection)
 
+Criando o arquivo sistema_empresa.html
+O botão “Sair” irá conduzir a um arqivo logout.php que encerra a sessão, evitando que o sistema seja acessado diretamente sem o usuário realizar o login.
+
