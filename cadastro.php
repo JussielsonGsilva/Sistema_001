@@ -1,7 +1,7 @@
 <?php
 include("conexao.php"); // Conexão com o banco
 
-// Protege os dados recebidos
+// Protegendo os dados recebidos
 $usuario = mysqli_real_escape_string($conn, $_POST['usuario']);
 $senha = mysqli_real_escape_string($conn, $_POST['senha']);
 $confirmar_senha = $_POST['confirmar_senha'];
@@ -11,9 +11,10 @@ if ($senha !== $confirmar_senha) {
             alert('As Senhas não são Iguais!');
             window.location.href='cadastro.html';
           </script>";
+    exit;
 }
 // Verifica se o usuário já existe
-$sql_verifica = "SELECT * FROM usuarios WHERE usuario = '$usuario'";
+$sql_verifica = "SELECT* FROM usuarios WHERE usuario = '$usuario'";
 $resultado = mysqli_query($conn, $sql_verifica);
 
 if (mysqli_num_rows($resultado) > 0) {
@@ -22,7 +23,7 @@ if (mysqli_num_rows($resultado) > 0) {
             window.location.href='cadastro.html';
           </script>";
 } else {
-    // Criptografa a senha antes de salvar
+    // Criptografando a senha antes de salvar
     $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 
     // Insere o novo usuário
