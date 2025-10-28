@@ -24,3 +24,9 @@ CREATE TABLE usuarios (
     criado_em DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
+
+Aqurivo conexao.php
+Usa mysqli para conectar ao banco
+Verifica se a conexão foi bem-sucedida
+Pode ser incluído em outros arquivos com include 'conexao.php';
+
