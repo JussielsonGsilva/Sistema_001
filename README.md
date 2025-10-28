@@ -70,3 +70,9 @@ A sessão é encerrada
 Ele volta para a tela de login
 Se tentar acessar sistema_empresa.php sem estar logado, será bloqueado
 
+Vamos implementar o horário do login
+Adicionar uma coluna ultimo_login na tabela usuarios
+Atualizar o login.php para salvar a data e hora
+Usar date() para gerar o horário no formato desejado
+
+ALTER TABLE usuarios ADD ultimo_login DATETIME;

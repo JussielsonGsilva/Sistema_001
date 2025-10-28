@@ -1,57 +1,57 @@
 <?php
 session_start();
+include("conexao.php");
 
 // Verifica se o usuário está logado
 if (!isset($_SESSION['usuario'])) {
     header("Location: index.php");
-    exit;
+    exit();
 }
+
+$usuario = $_SESSION['usuario'];
+
+// Busca o horário do último login
+$sql = "SELECT ultimo_login FROM usuarios WHERE usuario = '$usuario'";
+$resultado = mysqli_query($conn, $sql);
+$dados = mysqli_fetch_assoc($resultado);
+
+// Formata o horário
+$ultimo_login = date("d/m/Y H:i:s", strtotime($dados['ultimo_login']));
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>Sistema Empresarial</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            text-align: center;
-            padding-top: 50px;
+            font-size: 16px;
         }
-        .container {
-            background-color: white;
-            width: 400px;
-            margin: auto;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        .login-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #d3c55fff;
+            padding: 12px 16px 12px 16px;
+            margin-bottom: 20px;
+            border-left: 5px;
         }
-        h1 {
-            color: #333;
-        }
-        .btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #007BFF;
-            color: white;
+        a{
             text-decoration: none;
-            border-radius: 5px;
-        }
-        .btn:hover {
-            background-color: #0056b3;
+            color: green;
+
         }
     </style>
 </head>
 <body>
+    <div class="login-info">
+        <strong>Bem-vindo(a):  <?php echo $usuario; ?>!</strong>
+        Último login: <?php echo $ultimo_login; ?>
+        <a href="logout.php" class="btn"><b>Sair</b></a>
+    </div>
 
-<div class="container">
-    <h1>Bem-vindo ao Sistema Empresarial</h1>
-    <p>Você está logado com sucesso.</p>
-    <a href="logout.php" class="btn">Sair</a>
-</div>
-
+    <!-- Aqui você pode adicionar os campos e funcionalidades do sistema -->
 </body>
 </html>
