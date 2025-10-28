@@ -1,76 +1,42 @@
 <?php
-include 'conexao.php';
+include("conexao.php"); // Conexão com o banco
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $usuario = $_POST['usuario'];
-    $senha = $_POST['senha'];
-    $confirmar_senha = $_POST['confirmar_senha'];
+// Protege os dados recebidos
+$usuario = mysqli_real_escape_string($conn, $_POST['usuario']);
+$senha = mysqli_real_escape_string($conn, $_POST['senha']);
+$confirmar_senha = $_POST['confirmar_senha'];
 
-    // Verificar se as senhas coincidem
-    if ($senha !== $confirmar_senha) {
-        echo "<!DOCTYPE html>
-        <html lang='pt-br'>
-        <head>
-            <meta charset='UTF-8'>
-            <title>Erro no Cadastro</title>
-            <style>
-                body { font-family: Arial; text-align: center; margin-top: 50px; }
-                .btn { display: inline-block; margin-top: 20px; padding: 10px 20px; background-color: #dc3545; color: white; text-decoration: none; border-radius: 5px; }
-            </style>
-        </head>
-        <body>
-            <h2 style='color: red;'>As senhas não coincidem. Tente novamente.</h2>
-            <a href='cadastro.html' class='btn'>Voltar</a>
-        </body>
-        </html>";
-        exit;
-    }
+if ($senha !== $confirmar_senha) {
+    echo "<script>
+            alert('As Senhas não são Iguais!');
+            window.location.href='cadastro.html';
+          </script>";
+}
+// Verifica se o usuário já existe
+$sql_verifica = "SELECT * FROM usuarios WHERE usuario = '$usuario'";
+$resultado = mysqli_query($conn, $sql_verifica);
 
-    // Criptografar a senha
+if (mysqli_num_rows($resultado) > 0) {
+    echo "<script>
+            alert('Este Usuário já está cadastrado!');
+            window.location.href='cadastro.html';
+          </script>";
+} else {
+    // Criptografa a senha antes de salvar
     $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 
-    // Inserir no banco
-    $sql = "INSERT INTO usuarios (usuario, senha) VALUES (?, ?)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ss", $usuario, $senha_hash);
-
-    if ($stmt->execute()) {
-        echo "<!DOCTYPE html>
-        <html lang='pt-br'>
-        <head>
-            <meta charset='UTF-8'>
-            <title>Cadastro Realizado</title>
-            <style>
-                body { font-family: Arial; text-align: center; margin-top: 50px; }
-                h2 { color: green; }
-                .btn { display: inline-block; margin-top: 20px; padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px; }
-            </style>
-        </head>
-        <body>
-            <h2>Usuário cadastrado com sucesso!</h2>
-            <a href='index.php' class='btn'>Voltar para Login</a>
-        </body>
-        </html>";
+    // Insere o novo usuário
+    $sql = "INSERT INTO usuarios (usuario, senha) VALUES ('$usuario', '$senha_hash')";
+    if (mysqli_query($conn, $sql)) {
+        echo "<script>
+                alert('Cadastro realizado com sucesso!');
+                window.location.href='index.php';
+              </script>";
     } else {
-        echo "<!DOCTYPE html>
-        <html lang='pt-br'>
-        <head>
-            <meta charset='UTF-8'>
-            <title>Erro no Cadastro</title>
-            <style>
-                body { font-family: Arial; text-align: center; margin-top: 50px; }
-                h2 { color: red; }
-                .btn { display: inline-block; margin-top: 20px; padding: 10px 20px; background-color: #dc3545; color: white; text-decoration: none; border-radius: 5px; }
-            </style>
-        </head>
-        <body>
-            <h2>Erro ao cadastrar: " . $conn->error . "</h2>
-            <a href='cadastro.html' class='btn'>Tentar novamente</a>
-        </body>
-        </html>";
+        echo "<script>
+                alert('Erro ao cadastrar. Tente novamente.');
+                window.location.href='cadastro.html';
+              </script>";
     }
-
-    $stmt->close();
-    $conn->close();
 }
 ?>

@@ -22,10 +22,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: sistema_empresa.php");
             exit;
         } else {
-            mostrarErro("Senha incorreta.");
+            mostrarErro("Usuário ou Senha incorreta.");
         }
     } else {
-        mostrarErro("Usuário não encontrado.");
+        mostrarErro("Usuário ou Senha incorreta.");
     }
 
     $stmt->close();
