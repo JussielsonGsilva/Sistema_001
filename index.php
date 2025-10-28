@@ -55,11 +55,37 @@
         .register-link a:hover {
             text-decoration: underline;
         }
+        .message {
+            color: green;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .message {
+            color: green;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-align: center;
+            opacity: 1;
+            transition: opacity 1s ease-out;
+        }
+        .message.fade-out {
+            opacity: 0;
+        }
+
+
     </style>
 </head>
 <body>
 
 <div class="login-container">
+    <?php
+        if(isset($_GET['logout']) && $_GET['logout'] == 1) {
+            echo "<div class='message' id='logout-message'>
+                    <strong>Sessão encerrada com sucesso!</strong>
+                  </div>";}
+    ?>
     <h2>Login</h2>
     <form action="login.php" method="POST">
         <input type="text" name="usuario" placeholder="Usuário" required>
@@ -70,6 +96,19 @@
         <p>Ainda não é cadastrado? <a href="cadastro.html">Cadastre-se aqui</a></p>
     </div>
 </div>
+<!-- script para esmerecer a mensagem 'Sessão encerrada com sucesso!' -->
+<script>
+    setTimeout(function() {
+        const msg = document.getElementById('logout-message');
+        if (msg) {
+            msg.classList.add('fade-out');
+            setTimeout(() => {
+                msg.style.display = 'none';
+            }, 1000); // espera a transição terminar
+        }
+    }, 3000); // espera 4 segundos antes de começar a desaparecer
+</script>
+
 
 </body>
 </html>
