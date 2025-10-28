@@ -53,3 +53,9 @@ Verifica se $_SESSION['usuario'] existe
 Se não existir, redireciona para index.php
 Se estiver logado, mostra o nome do usuário e a página protegida
 
+Criando o arquivo login.php para verificar e validar os dados recebidos de index.php
+Verifica se o usuário existe
+Compara a senha digitada com a senha criptografada no banco
+Se estiver tudo certo, inicia a sessão e redireciona
+Se estiver errado, mostra uma mensagem estilizada com botão de voltar
+
