@@ -75,4 +75,3 @@ Adicionar uma coluna ultimo_login na tabela usuarios
 Atualizar o login.php para salvar a data e hora
 Usar date() para gerar o horário no formato desejado
 
-ALTER TABLE usuarios ADD ultimo_login DATETIME;
