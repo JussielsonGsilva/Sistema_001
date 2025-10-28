@@ -41,3 +41,15 @@ Insere os dados na tabela usuarios usando prepared statements (mais seguro contr
 Criando o arquivo sistema_empresa.html
 O botão “Sair” irá conduzir a um arqivo logout.php que encerra a sessão, evitando que o sistema seja acessado diretamente sem o usuário realizar o login.
 
+Protegendo a página com login
+Etapas para proteger a página com login:
+Transformar sistema_empresa.html em sistema_empresa.php
+Iniciar a sessão com session_start()
+Verificar se o usuário está logado
+Redirecionar para o login se não estiver autenticado
+
+session_start() inicia a sessão
+Verifica se $_SESSION['usuario'] existe
+Se não existir, redireciona para index.php
+Se estiver logado, mostra o nome do usuário e a página protegida
+
