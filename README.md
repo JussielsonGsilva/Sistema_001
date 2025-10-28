@@ -1,2 +1,3 @@
 # Sistema_001
-Sistema para Empresas
+Sistema de Cadastro e Gestão de Produtos/Serviços
+
