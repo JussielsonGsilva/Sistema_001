@@ -94,3 +94,15 @@ Exibe em uma tabela estilizada com cores suaves
 Inclui botão de “Voltar ao Painel”
 CSS embutido para facilitar testes e ajustes
 
+Implementando o cadastro de Produtos/Serviços
+criar a tabela produtos_servicos no phpMyadmin
+CREATE TABLE produtos_servicos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    tipo ENUM('Produto', 'Serviço'),
+    nome VARCHAR(100),
+    descricao TEXT,
+    preco DECIMAL(10,2),
+    data_cadastro DATETIME
+);
+
+Criando o arquivo cadastro_produto_servico.php

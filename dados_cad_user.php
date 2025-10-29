@@ -62,21 +62,34 @@ $result = mysqli_query($conn, "SELECT usuario, criado_em, ultimo_login FROM usua
     </style>
 </head>
 <body>
+
     <h2>Usuários Cadastrados</h2>
     <table class="tabela-usuarios">
         <thead>
             <tr>
-                <th>Usuario</th>
-                <th>Criado_em</th>
-                <th>Ultimo_login</th>
+                <th>Usuário</th>
+                <th>Criado em</th>
+                <th>Último Login</th>
             </tr>
         </thead>
         <tbody>
             <?php while ($row = mysqli_fetch_assoc($result)) { ?>
             <tr>
                 <td><?php echo $row['usuario']; ?></td>
-                <td><?php echo $row['criado_em']; ?></td>
-                <td><?php echo date("d/m/Y H:i", strtotime($row['ultimo_login'])); ?></td>
+                <td>
+                    <?php
+                        $dtCriado = new DateTime($row['criado_em'], new DateTimeZone('UTC'));
+                        $dtCriado->setTimezone(new DateTimeZone('America/Fortaleza'));
+                        echo $dtCriado->format("d/m/Y H:i");
+                    ?>
+                </td>
+                <td>
+                    <?php
+                        $dtLogin = new DateTime($row['ultimo_login'], new DateTimeZone('UTC'));
+                        $dtLogin->setTimezone(new DateTimeZone('America/Fortaleza'));
+                        echo $dtLogin->format("d/m/Y H:i");
+                    ?>
+                </td>
             </tr>
             <?php } ?>
         </tbody>

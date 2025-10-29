@@ -93,8 +93,9 @@ $ultimo_login = date("d/m/Y á\s H:i", strtotime($dados['ultimo_login']));
     <!-- Sidebar com os ícones -->
     <div class="sidebar">
     <ul>
-        <li><a href="dados_cad_user.php"><span class="icon">👤</span> Usuários</a></li>
         <li><a href="#"><span class="icon">🏠</span> Início</a></li>
+        <li><a href="dados_cad_user.php"><span class="icon">👤</span> Usuários</a></li>
+        <li><a href="cadastro_produto_servico.php"><span class="icon">📝</span> Cadastro de Produtos/Serviços</a></li>
         <li><a href="#"><span class="icon">📊</span> Relatórios</a></li>
         <li><a href="#"><span class="icon">⚙️</span> Configurações</a></li>
         <li><a href="logout.php"><span class="icon">🚪</span> Sair</a></li>
