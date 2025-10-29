@@ -106,7 +106,7 @@
                 msg.style.display = 'none';
             }, 1000); // espera a transição terminar
         }
-    }, 2000); // espera 4 segundos antes de começar a desaparecer
+    }, 2000); // espera 2 segundos antes de começar a desaparecer
 </script>
 
 
