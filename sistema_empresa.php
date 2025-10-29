@@ -1,6 +1,7 @@
 <?php
 session_start();
 include("conexao.php");
+date_default_timezone_set('America/Fortaleza');
 
 // Verifica se o usuário está logado
 if (!isset($_SESSION['usuario'])) {
@@ -9,7 +10,6 @@ if (!isset($_SESSION['usuario'])) {
 }
 
 $usuario = $_SESSION['usuario'];
-
 // Busca o horário do último login
 $sql = "SELECT ultimo_login FROM usuarios WHERE usuario = '$usuario'";
 $resultado = mysqli_query($conn, $sql);
@@ -82,7 +82,6 @@ $ultimo_login = date("d/m/Y á\s H:i", strtotime($dados['ultimo_login']));
             margin-right: 10px;
             font-size: 18px;
         }
-
     </style>
 </head>
 <body>
@@ -94,14 +93,13 @@ $ultimo_login = date("d/m/Y á\s H:i", strtotime($dados['ultimo_login']));
     <!-- Sidebar com os ícones -->
     <div class="sidebar">
     <ul>
-        <li><a href="#"><span class="icon">👤</span> Usuários</a></li>
+        <li><a href="dados_cad_user.php"><span class="icon">👤</span> Usuários</a></li>
         <li><a href="#"><span class="icon">🏠</span> Início</a></li>
         <li><a href="#"><span class="icon">📊</span> Relatórios</a></li>
         <li><a href="#"><span class="icon">⚙️</span> Configurações</a></li>
         <li><a href="logout.php"><span class="icon">🚪</span> Sair</a></li>
     </ul>
     </div>
-
-
+</table>
 </body>
 </html>

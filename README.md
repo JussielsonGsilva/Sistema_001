@@ -87,3 +87,10 @@ Menu fixo à esquerda com ícones e texto
 Links com efeito hover e destaque
 Visual limpo e moderno com cores profissionais
 
+implementando a listagem de usuários no sistema empresarial.
+criando o arquivo dados_cad_user.php
+Conecta ao banco e busca os usuários
+Exibe em uma tabela estilizada com cores suaves
+Inclui botão de “Voltar ao Painel”
+CSS embutido para facilitar testes e ajustes
+
