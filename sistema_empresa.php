@@ -16,7 +16,7 @@ $resultado = mysqli_query($conn, $sql);
 $dados = mysqli_fetch_assoc($resultado);
 
 // Formata o horário
-$ultimo_login = date("d/m/Y H:i:s", strtotime($dados['ultimo_login']));
+$ultimo_login = date("d/m/Y á\s H:i", strtotime($dados['ultimo_login']));
 ?>
 
 <!DOCTYPE html>
@@ -47,9 +47,9 @@ $ultimo_login = date("d/m/Y H:i:s", strtotime($dados['ultimo_login']));
 </head>
 <body>
     <div class="login-info">
+        <a href="logout.php" class="btn"><b>Sair</b></a>
         <strong>Bem-vindo(a):  <?php echo $usuario; ?>!</strong>
         Último login: <?php echo $ultimo_login; ?>
-        <a href="logout.php" class="btn"><b>Sair</b></a>
     </div>
 
     <!-- Aqui você pode adicionar os campos e funcionalidades do sistema -->
