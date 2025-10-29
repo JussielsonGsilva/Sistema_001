@@ -6,11 +6,11 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
+            background-color: #ede5e5ff;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height: 96vh;
         }
         .login-container {
             background-color: white;

@@ -3,7 +3,7 @@ session_start();
 date_default_timezone_set('America/Fortaleza');
 include("conexao.php");
 
-$result = mysqli_query($conn, "SELECT usuario, criado_em, ultimo_login FROM usuarios ORDER BY criado_em DESC");
+$result = mysqli_query($conn, "SELECT usuario, criado_em, ultimo_login FROM usuarios ORDER BY ultimo_login DESC");
 ?>
 
 <!DOCTYPE html>
@@ -49,6 +49,7 @@ $result = mysqli_query($conn, "SELECT usuario, criado_em, ultimo_login FROM usua
         .voltar {
             display: inline-block;
             margin-top: 20px;
+            margin-left: 500px;
             text-decoration: none;
             background-color: #3498db;
             color: white;
@@ -75,18 +76,17 @@ $result = mysqli_query($conn, "SELECT usuario, criado_em, ultimo_login FROM usua
         <tbody>
             <?php while ($row = mysqli_fetch_assoc($result)) { ?>
             <tr>
-                <td><?php echo $row['usuario']; ?></td>
+                <td><?php echo htmlspecialchars($row['usuario']); ?></td>
                 <td>
                     <?php
-                        $dtCriado = new DateTime($row['criado_em'], new DateTimeZone('UTC'));
-                        $dtCriado->setTimezone(new DateTimeZone('America/Fortaleza'));
+                        // Removido UTC pois os dados já estão no fuso correto
+                        $dtCriado = new DateTime($row['criado_em']);
                         echo $dtCriado->format("d/m/Y H:i");
                     ?>
                 </td>
                 <td>
                     <?php
-                        $dtLogin = new DateTime($row['ultimo_login'], new DateTimeZone('UTC'));
-                        $dtLogin->setTimezone(new DateTimeZone('America/Fortaleza'));
+                        $dtLogin = new DateTime($row['ultimo_login']);
                         echo $dtLogin->format("d/m/Y H:i");
                     ?>
                 </td>
