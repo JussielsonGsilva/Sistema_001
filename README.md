@@ -82,3 +82,8 @@ Adicionar uma coluna ultimo_login na tabela usuarios
 Atualizar o login.php para salvar a data e hora
 Usar date() para gerar o horário no formato desejado
 
+No arquivo sistema_empresa.php vamos Exibir o nome do usuário e a data-hora do último login
+Menu fixo à esquerda com ícones e texto
+Links com efeito hover e destaque
+Visual limpo e moderno com cores profissionais
+
