@@ -111,7 +111,7 @@ Botão de “Voltar ao Painel” estilizado
 Tabela responsiva e organizada
 Mensagem de sucesso/erro estilizada
 
-Criando o arquivo pesqusar_produto_servico.php
+Criando o arquivo pesquisar_produto_servico.php
 onde vamos poder realizar uma pesquisa de um determinado produto ou um serviço
 e com as opções de alterar ou deletar o produto ou um serviço
 
