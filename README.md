@@ -106,3 +106,8 @@ CREATE TABLE produtos_servicos (
 );
 
 Criando o arquivo cadastro_produto_servico.php
+Relatório centralizado com layout limpo
+Botão de “Voltar ao Painel” estilizado
+Tabela responsiva e organizada
+Mensagem de sucesso/erro estilizada
+
