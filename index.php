@@ -55,12 +55,6 @@
         .register-link a:hover {
             text-decoration: underline;
         }
-        .message {
-            color: green;
-            margin-bottom: 20px;
-            font-weight: bold;
-            text-align: center;
-        }
 
         .message {
             color: green;
@@ -108,7 +102,6 @@
         }
     }, 2000); // espera 2 segundos antes de começar a desaparecer
 </script>
-
 
 </body>
 </html>

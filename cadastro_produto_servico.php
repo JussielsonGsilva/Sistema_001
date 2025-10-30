@@ -110,6 +110,12 @@ unset($_SESSION['mensagem'], $_SESSION['tipoClasse']);
             text-align: center;
         }
 
+        .mensagem {
+        /* interagindo com o código javascript */
+            transition: opacity 0.5s ease-out;
+        }
+
+
         .sucesso {
             background-color: #d4edda;
             color: #155724;
@@ -127,26 +133,37 @@ unset($_SESSION['mensagem'], $_SESSION['tipoClasse']);
 
         .btn-voltar {
             display: block;
-            margin: 30px auto 0;
+            margin: 20px auto 0;
             text-align: center;
             background-color: #3498db;
             color: white;
-            padding: 12px 20px;
+            padding: 6px 12px;
             border-radius: 5px;
             text-decoration: none;
-            font-weight: bold;
             width: fit-content;
         }
 
         .btn-voltar:hover {
             background-color: #2980b9;
         }
+
+        .titulo{
+            justify-content: center;
+            align-items: center;
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
+        <div class="titulo">
         <h2>Cadastro de Produtos ou Serviços</h2>
+        <a href="sistema_empresa.php" class="btn-voltar">← Voltar ao Painel</a>
+        </div>
+
+        <?php if ($mensagem) { ?>
+            <div class="mensagem <?php echo $tipoClasse; ?>"><?php echo $mensagem; ?></div>
+        <?php } ?>
 
         <form method="POST" action="">
             <label>Tipo:</label>
@@ -167,13 +184,16 @@ unset($_SESSION['mensagem'], $_SESSION['tipoClasse']);
 
             <button type="submit">Cadastrar</button>
         </form>
-
-        <?php if ($mensagem) { ?>
-            <div class="mensagem <?php echo $tipoClasse; ?>"><?php echo $mensagem; ?></div>
-        <?php } ?>
-
-        <a href="sistema_empresa.php" class="btn-voltar">← Voltar ao Painel</a>
     </div>
-
+<!-- código javascript para esmerecer  a mensagem cadastro realizado com sucesso -->
+ <script>
+    setTimeout(function() {
+        const msg = document.querySelector('.mensagem');
+        if (msg) {
+            msg.style.opacity = '0';
+            setTimeout(() => msg.style.display = 'none', 500); // espera a transição terminar
+        }
+    }, 3000);
+</script>
 </body>
 </html>

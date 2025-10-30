@@ -48,10 +48,10 @@ $result = mysqli_query($conn, "SELECT usuario, criado_em, ultimo_login FROM usua
 
         .voltar {
             display: inline-block;
-            margin-top: 20px;
+            margin-top: 8px;
             margin-left: 500px;
             text-decoration: none;
-            background-color: #3498db;
+            background-color: #64a248ff;
             color: white;
             padding: 10px 15px;
             border-radius: 5px;
@@ -60,11 +60,20 @@ $result = mysqli_query($conn, "SELECT usuario, criado_em, ultimo_login FROM usua
         .voltar:hover {
             background-color: #2980b9;
         }
+
+        .cabecalho{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
     </style>
 </head>
 <body>
-
-    <h2>Usuários Cadastrados</h2>
+    <div class="cabecalho">
+        <h2>Usuários Cadastrados</h2>
+        <a href="sistema_empresa.php" class="voltar">← Voltar ao Painel</a>
+    </div>
     <table class="tabela-usuarios">
         <thead>
             <tr>
@@ -95,7 +104,7 @@ $result = mysqli_query($conn, "SELECT usuario, criado_em, ultimo_login FROM usua
         </tbody>
     </table>
 
-    <a href="sistema_empresa.php" class="voltar">← Voltar ao Painel</a>
+    <!-- <a href="sistema_empresa.php" class="voltar">← Voltar ao Painel</a> -->
 
 </body>
 </html>

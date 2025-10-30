@@ -47,8 +47,8 @@ $ultimo_login = date("d/m/Y á\s H:i", strtotime($dados['ultimo_login']));
             position: fixed;
             left: 0;
             top: 0;
-            width: 165px;
-            height: 100vh;
+            width: 180px;
+            height: 90vh;
             padding-top: 80px;
         }
 
@@ -68,7 +68,7 @@ $ultimo_login = date("d/m/Y á\s H:i", strtotime($dados['ultimo_login']));
             font-size: 14px;
             display: flex;
             align-items: center;
-            padding: 10px 20px;
+            padding: 2px 12px;
             transition: background 0.3s;
         }
 
