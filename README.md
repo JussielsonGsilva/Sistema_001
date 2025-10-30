@@ -119,3 +119,8 @@ Pesquisar produtos ou serviços por nome ou tipo
 ✅ Exibir os resultados em uma tabela 
 ✅ Oferecer botões para alterar ou deletar cada item
 
+Criando o arquivo alterar_produto_servico.php
+Carregar os dados do produto/serviço pelo id 
+✅ Exibir os dados em um formulário para edição 
+✅ Atualizar os dados no banco de dados após o envio
+

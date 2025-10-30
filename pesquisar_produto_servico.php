@@ -30,14 +30,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <style>
         body {
             font-family: 'Segoe UI', sans-serif;
-            background-color: #f4f6f8;
-            padding: 40px;
+            background-color: #949ca2ff;
+            padding: 70px;
+            margin-top: 50px;
         }
 
         .container {
             max-width: 800px;
             margin: auto;
-            background-color: #fff;
+            background-color: #f2ededff;
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 0 15px rgba(0,0,0,0.1);
@@ -126,7 +127,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h2>Pesquisar Produto ou Serviço</h2>
 
         <form method="POST" action="">
-            <input type="text" name="pesquisa" placeholder="Digite nome ou tipo..." value="<?php echo htmlspecialchars($pesquisa); ?>" required>
+            <input type="text" name="pesquisa" placeholder="Digite o Nome do Produto ou o Tipo do Serviço." value="<?php echo htmlspecialchars($pesquisa); ?>" required>
             <button type="submit">Pesquisar</button>
         </form>
 
