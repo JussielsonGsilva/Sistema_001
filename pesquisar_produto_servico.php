@@ -30,16 +30,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <style>
         body {
             font-family: 'Segoe UI', sans-serif;
-            background-color: #949ca2ff;
-            padding: 70px;
-            margin-top: 50px;
+            background-color: #d7dee4ff;
+            padding: 40px;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 950px;
             margin: auto;
-            background-color: #f2ededff;
-            padding: 30px;
+            background-color: #eee8e8ff;
+            padding: 16px;
             border-radius: 8px;
             box-shadow: 0 0 15px rgba(0,0,0,0.1);
         }
@@ -86,7 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         th, td {
             padding: 12px;
             border-bottom: 1px solid #ddd;
-            text-align: left;
+            text-align: center;
         }
 
         th {
@@ -105,12 +104,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         .btn-voltar {
-            display: block;
-            margin-top: 30px;
-            text-align: center;
-            background-color: #3498db;
+            /* display: block; */
+            margin-top: 16px;
+            background-color: #9b9550ff;
             color: white;
-            padding: 12px 20px;
+            padding: 6px 12px;
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
@@ -120,14 +118,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .btn-voltar:hover {
             background-color: #2980b9;
         }
+
+        .cabecalho{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>Pesquisar Produto ou Serviço</h2>
+            <div class="cabecalho">
+            <h2>Pesquisar Produto ou Serviço:</h2>
+            <a href="sistema_empresa.php" class="btn-voltar">← Voltar ao Painel</a>
+            </div>
+            <br>
 
         <form method="POST" action="">
-            <input type="text" name="pesquisa" placeholder="Digite o Nome do Produto ou o Tipo do Serviço." value="<?php echo htmlspecialchars($pesquisa); ?>" required>
+            <input type="text" name="pesquisa" placeholder="Digite nome do Produto ou Serviço" value="<?php echo htmlspecialchars($pesquisa); ?>" required>
             <button type="submit">Pesquisar</button>
         </form>
 
@@ -139,16 +147,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <th>Nome</th>
                         <th>Descrição</th>
                         <th>Preço (R$)</th>
-                        <th>Ações</th>
+                        <th>Data_Cadastro</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($resultados as $item) { ?>
+                    <!-- formatando a data -->
+                     <?php
+                        $data_format = new DateTime($item['data_cadastro']); 
+                     ?>
                         <tr>
                             <td><?php echo $item['tipo']; ?></td>
                             <td><?php echo $item['nome']; ?></td>
                             <td><?php echo $item['descricao']; ?></td>
                             <td><?php echo number_format($item['preco'], 2, ',', '.'); ?></td>
+                            <td><?php echo $data_format->format("d-m-Y H:i"); ?></td>
                             <td class="acoes">
                                 <a href="alterar_produto_servico.php?id=<?php echo $item['id']; ?>">Alterar</a>
                                 <a href="deletar_produto_servico.php?id=<?php echo $item['id']; ?>" onclick="return confirm('Tem certeza que deseja excluir este item?')">Excluir</a>
@@ -160,8 +173,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <?php } elseif ($_SERVER["REQUEST_METHOD"] == "POST") { ?>
             <p>Nenhum resultado encontrado para "<?php echo htmlspecialchars($pesquisa); ?>"</p>
         <?php } ?>
-
-        <a href="sistema_empresa.php" class="btn-voltar">← Voltar ao Painel</a>
     </div>
 </body>
 </html>

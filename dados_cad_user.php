@@ -88,7 +88,6 @@ $result = mysqli_query($conn, "SELECT usuario, criado_em, ultimo_login FROM usua
                 <td><?php echo htmlspecialchars($row['usuario']); ?></td>
                 <td>
                     <?php
-                        // Removido UTC pois os dados já estão no fuso correto
                         $dtCriado = new DateTime($row['criado_em']);
                         echo $dtCriado->format("d/m/Y H:i");
                     ?>

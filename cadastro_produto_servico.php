@@ -157,8 +157,8 @@ unset($_SESSION['mensagem'], $_SESSION['tipoClasse']);
 
     <div class="container">
         <div class="titulo">
-        <h2>Cadastro de Produtos ou Serviços</h2>
-        <a href="sistema_empresa.php" class="btn-voltar">← Voltar ao Painel</a>
+            <h2>Cadastro de Produtos ou Serviços</h2>
+            <a href="sistema_empresa.php" class="btn-voltar">← Voltar ao Painel</a>
         </div>
 
         <?php if ($mensagem) { ?>
