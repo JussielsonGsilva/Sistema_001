@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 WHERE id = $id";
     
         if (mysqli_query($conn, $sql)) {
-            header("Location: alterar_produto_servico.php?id=$id&sucesso=1");
+            header("Location: produto_salvo.php?sucesso=1");
             exit;
 
         } else {
@@ -181,23 +181,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <a href="pesquisar_produto_servico.php" class="btn-voltar">← Voltar à Pesquisa</a>
     </div>
-<script>
-  const msg = document.querySelector('.mensagem');
-  if (msg && msg.classList.contains('sucesso')) {
-    msg.style.opacity = 0;
-    msg.style.transform = 'scale(0.95)';
-    setTimeout(() => {
-      msg.style.transition = 'all 0.6s ease';
-      msg.style.opacity = 1;
-      msg.style.transform = 'scale(1)';
-    }, 100);
-
-    // Desaparece após 3 segundos
-    setTimeout(() => {
-      msg.style.opacity = 0;
-      msg.style.transform = 'scale(0.95)';
-    }, 3000);
-  }
-</script>
 </body>
 </html>
