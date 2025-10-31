@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         .container {
-            max-width: 950px;
+            max-width: 960px;
             margin: auto;
             background-color: #eee8e8ff;
             padding: 16px;
@@ -97,11 +97,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         th {
             background-color: #ecf0f1;
         }
-
+        
         .acoes a {
-            margin-right: 10px;
+            margin-right: 8px;
             text-decoration: none;
-            /* color: #3498db; */
             font-weight: bold;
         }
 
@@ -110,7 +109,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         .btn-voltar {
-            /* display: block; */
             margin-top: 16px;
             background-color: #c9c441ff;
             color: white;
@@ -140,6 +138,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .btn_excluir{
             color: red;
         }
+        .pdf {
+            color: #555;
+            margin-left: 10px;
+        }
+        .pdf:hover {
+            text-decoration: underline;
+        }
+
     </style>
 </head>
 <body>
@@ -181,6 +187,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <td class="acoes">
                                 <a class="btn_alterar" href="alterar_produto_servico.php?id=<?php echo $item['id']; ?>">Alterar</a>
                                 <a class="btn_excluir" href="deletar_produto_servico.php?id=<?php echo $item['id']; ?>" onclick="return confirm('Tem certeza que deseja excluir este item?')">Excluir</a>
+                                <a class="pdf" href="gerar_pdf.php?id=<?php echo $item['id']; ?>" target="_blank">PDF</a>
                             </td>
                         </tr>
                     <?php } ?>

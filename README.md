@@ -125,5 +125,10 @@ Carregar os dados do produto/serviço pelo id
 ✅ Atualizar os dados no banco de dados após o envio
 
 Criando o arquivo deletar_produto_servico.php
-Exclui um item do banco e redireciona para a pesquisa com mensagem de sucesso ou erro.
+Exclui um item do banco e redireciona para a pesquisa com 
+mensagem de sucesso ou erro.
+
+Criando o arquivo gerar_pdf.php
+Esse arquivo vai receber o id do produto/serviço 
+buscar os dados no banco e gerar o PDF.
 
