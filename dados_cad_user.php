@@ -3,6 +3,12 @@ session_start();
 date_default_timezone_set('America/Fortaleza');
 include("conexao.php");
 
+// Implementando segurança à página, para ter acesso apenas usuários logados
+if (!isset($_SESSION['usuario'])) {
+    header("Location: index.php");
+    exit();
+}
+
 $result = mysqli_query($conn, "SELECT usuario, criado_em, ultimo_login FROM usuarios ORDER BY ultimo_login DESC");
 ?>
 

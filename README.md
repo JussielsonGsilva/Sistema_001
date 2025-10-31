@@ -124,3 +124,6 @@ Carregar os dados do produto/serviço pelo id
 ✅ Exibir os dados em um formulário para edição 
 ✅ Atualizar os dados no banco de dados após o envio
 
+Criando o arquivo deletar_produto_servico.php
+Exclui um item do banco e redireciona para a pesquisa com mensagem de sucesso ou erro.
+

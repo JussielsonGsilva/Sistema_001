@@ -13,7 +13,6 @@ if (mysqli_num_rows($resultado) == 1) {
 
     if (password_verify($senha, $dados['senha'])) {
         $_SESSION['usuario'] = $usuario;
-
         // Registra o horário do login direto no banco de dados
         // Define o fuso horário para Teresina (segue o mesmo de Fortaleza)
         date_default_timezone_set('America/Fortaleza');

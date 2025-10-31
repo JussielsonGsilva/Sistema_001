@@ -3,6 +3,12 @@ session_start();
 date_default_timezone_set('America/Fortaleza');
 include("conexao.php");
 
+// Implementando segurança à página, para ter acesso apenas usuários logados
+if (!isset($_SESSION['usuario'])) {
+    header("Location: index.php");
+    exit();
+}
+
 // Processa o formulário
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $tipo = $_POST['tipo'] ?? '';

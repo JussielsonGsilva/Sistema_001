@@ -2,6 +2,12 @@
 session_start();
 include("conexao.php");
 
+// Implementando segurança à página, para ter acesso apenas usuários logados
+if (!isset($_SESSION['usuario'])) {
+    header("Location: index.php");
+    exit();
+}
+
 $pesquisa = "";
 $resultados = [];
 
@@ -95,7 +101,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .acoes a {
             margin-right: 10px;
             text-decoration: none;
-            color: #3498db;
+            /* color: #3498db; */
             font-weight: bold;
         }
 
@@ -124,6 +130,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             align-items: center;
             justify-content: space-between;
             padding: 0px 40px;
+        }
+        .excluir{
+            color: red;
+        }
+        .btn_alterar{
+            color: green;
+        }
+        .btn_excluir{
+            color: red;
         }
     </style>
 </head>
@@ -164,8 +179,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <td><?php echo number_format($item['preco'], 2, ',', '.'); ?></td>
                             <td><?php echo $data_format->format("d-m-Y à\s H:i"); ?></td>
                             <td class="acoes">
-                                <a href="alterar_produto_servico.php?id=<?php echo $item['id']; ?>">Alterar</a>
-                                <a href="deletar_produto_servico.php?id=<?php echo $item['id']; ?>" onclick="return confirm('Tem certeza que deseja excluir este item?')">Excluir</a>
+                                <a class="btn_alterar" href="alterar_produto_servico.php?id=<?php echo $item['id']; ?>">Alterar</a>
+                                <a class="btn_excluir" href="deletar_produto_servico.php?id=<?php echo $item['id']; ?>" onclick="return confirm('Tem certeza que deseja excluir este item?')">Excluir</a>
                             </td>
                         </tr>
                     <?php } ?>
