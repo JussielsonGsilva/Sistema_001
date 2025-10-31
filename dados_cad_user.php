@@ -89,13 +89,13 @@ $result = mysqli_query($conn, "SELECT usuario, criado_em, ultimo_login FROM usua
                 <td>
                     <?php
                         $dtCriado = new DateTime($row['criado_em']);
-                        echo $dtCriado->format("d/m/Y H:i");
+                        echo $dtCriado->format("d/m/Y à\s H:i");
                     ?>
                 </td>
                 <td>
                     <?php
                         $dtLogin = new DateTime($row['ultimo_login']);
-                        echo $dtLogin->format("d/m/Y H:i");
+                        echo $dtLogin->format("d/m/Y à\s H:i");
                     ?>
                 </td>
             </tr>

@@ -18,7 +18,8 @@ if ($id) {
     if (!$item) {
         die("Produto ou serviço não encontrado.");
     }
-} else {
+}
+else {
     die("ID não especificado.");
 }
 

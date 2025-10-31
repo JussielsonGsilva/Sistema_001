@@ -25,6 +25,7 @@ if (isset($_GET['sucesso']) && $_GET['sucesso'] == 1) {
             border-radius: 8px;
             box-shadow: 0 0 15px rgba(0,0,0,0.1);
             text-align: center;
+            margin-top: 90px;
         }
 
         .mensagem {

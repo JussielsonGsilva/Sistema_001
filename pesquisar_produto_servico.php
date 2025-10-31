@@ -106,7 +106,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .btn-voltar {
             /* display: block; */
             margin-top: 16px;
-            background-color: #9b9550ff;
+            background-color: #c9c441ff;
             color: white;
             padding: 6px 12px;
             border-radius: 5px;
@@ -123,6 +123,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            padding: 0px 40px;
         }
     </style>
 </head>
@@ -161,7 +162,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <td><?php echo $item['nome']; ?></td>
                             <td><?php echo $item['descricao']; ?></td>
                             <td><?php echo number_format($item['preco'], 2, ',', '.'); ?></td>
-                            <td><?php echo $data_format->format("d-m-Y H:i"); ?></td>
+                            <td><?php echo $data_format->format("d-m-Y à\s H:i"); ?></td>
                             <td class="acoes">
                                 <a href="alterar_produto_servico.php?id=<?php echo $item['id']; ?>">Alterar</a>
                                 <a href="deletar_produto_servico.php?id=<?php echo $item['id']; ?>" onclick="return confirm('Tem certeza que deseja excluir este item?')">Excluir</a>
