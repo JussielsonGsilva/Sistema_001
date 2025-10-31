@@ -132,3 +132,6 @@ Criando o arquivo gerar_pdf.php
 Esse arquivo vai receber o id do produto/serviço 
 buscar os dados no banco e gerar o PDF.
 
+Realizando algumas melhorias no PDF
+Adicionado a função de enviar o PDF para um e-mail
+Utilizando a Biblioteca PHPMailer
