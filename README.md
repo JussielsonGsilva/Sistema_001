@@ -135,3 +135,4 @@ buscar os dados no banco e gerar o PDF.
 Realizando algumas melhorias no PDF
 Adicionado a função de enviar o PDF para um e-mail
 Utilizando a Biblioteca PHPMailer
+Adicionando a chave pix para facilitar o pagamento

@@ -23,6 +23,9 @@ if ($resultado->num_rows === 0) {
 
 $item = $resultado->fetch_assoc();
 
+// chave pixe do dono da empresa
+$chave_pix = '86995845986'; // CPF, CNPJ, telefone ou chave aleatória
+
 // Conteúdo HTML do PDF
 $html = '
 <style>
@@ -54,6 +57,17 @@ $html = '
         font-weight: bold;
         color: #555;
     }
+    .pix {
+        margin-top: 30px;
+        padding: 15px;
+        background-color: #E8F5E9;
+        border: 1px dashed #4CAF50;
+        border-radius: 8px;
+        font-size: 16px;
+        color: #2E7D32;
+        text-align: center;
+        word-break: break-word;
+    }
     .rodape {
         position: absolute;
         bottom: 20px;
@@ -74,10 +88,11 @@ $html = '
     <div class="linha"><span class="label">Descrição:</span> ' . htmlspecialchars($item['descricao']) . '</div>
     <div class="linha"><span class="label">Preço:</span> R$ ' . number_format($item['preco'], 2, ',', '.') . '</div>
     <div class="linha"><span class="label">Data de Cadastro:</span> ' . date('d/m/Y', strtotime($item['data_cadastro'])) . '</div>
+
+    <div class="pix"><strong>Chave Pix:</strong><br>' . $chave_pix . '</div>
     <div class="rodape">PDF gerado em ' . date('d/m/Y \à\s H:i:s') . '</div>
 </div>
 ';
-
 
 // Gerar o PDF
 $dompdf = new Dompdf();

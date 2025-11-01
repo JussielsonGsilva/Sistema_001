@@ -185,8 +185,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <td><?php echo number_format($item['preco'], 2, ',', '.'); ?></td>
                             <td><?php echo $data_format->format("d-m-Y à\s H:i"); ?></td>
                             <td class="acoes">
-                                <a class="btn_alterar" href="alterar_produto_servico.php?id=<?php echo $item['id']; ?>">Alterar</a>
-                                <a class="btn_excluir" href="deletar_produto_servico.php?id=<?php echo $item['id']; ?>" onclick="return confirm('Tem certeza que deseja excluir este item?')">Excluir</a>
+                                <a class="btn_alterar" href="alterar_produto_servico.php?id=<?php echo $item['id']; ?>">Alterar</a><br>
+                                <a class="btn_excluir" href="deletar_produto_servico.php?id=<?php echo $item['id']; ?>" onclick="return confirm('Tem certeza que deseja excluir este item?')">Excluir</a><br>
                                 <a class="pdf" href="gerar_pdf.php?id=<?php echo $item['id']; ?>" target="_blank">PDF</a>
                             </td>
                         </tr>
