@@ -152,3 +152,5 @@ CREATE TABLE pagamentos (
 );
 
 Criando o arquivo cadastrar_pagamento.php onde teremos o nosso formulário 
+para realizar o cadastro
+

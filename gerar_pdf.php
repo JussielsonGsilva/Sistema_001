@@ -2,8 +2,8 @@
 date_default_timezone_set('America/Fortaleza');
 require 'vendor/autoload.php';
 use Dompdf\Dompdf;
-
 include("conexao.php");
+
 
 $id = $_GET['id'] ?? null;
 
