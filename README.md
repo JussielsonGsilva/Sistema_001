@@ -136,3 +136,19 @@ Realizando algumas melhorias no PDF
 Adicionado a função de enviar o PDF para um e-mail
 Utilizando a Biblioteca PHPMailer
 Adicionando a chave pix para facilitar o pagamento
+
+Criando a tabela pagamentos para receber os comprovantes
+com chave estrangeira para lincar com a tabela produtos/serviços
+CREATE TABLE pagamentos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    cpf_cnpj VARCHAR(20) NOT NULL,
+    nome VARCHAR(100) NOT NULL,
+    responsavel VARCHAR(100),
+    telefone VARCHAR(20),
+    comprovante_pagamento VARCHAR(255), -- caminho do arquivo ou nome
+    produto_servico_id INT NOT NULL,    -- chave estrangeira
+    data_hora DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (produto_servico_id) REFERENCES produtos_servicos(id)
+);
+
+Criando o arquivo cadastrar_pagamento.php onde teremos o nosso formulário 
